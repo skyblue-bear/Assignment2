@@ -33,4 +33,4 @@ int main()
 	printf("conflict test\n");
 
 	return 0;
-}
+} // main close
