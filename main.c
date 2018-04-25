@@ -98,21 +98,27 @@ void datecmp(void)	// 하늘
 	 */
 	// struct timespec st_mtim;	// Time of last modification
 
-	stat1.tm_mday, stat1.tm_mon > stat1.tm;
-	stat2.tm_mday, stat2.tm_mon > stat2.tm;
+	if(stat1.tm_mon > stat2.tm_mon)
+			printf("test1 is early. ");
 
-	if(stat1.tm > stat2.tm)
-		printf("test1 is early. ");
-
-	else if(stat1.tm < stat2.tm)
+	else if(stat1.tm_mon < stat2.tm_mon)
 		printf("test2 is early. ");
 
+	else if (stat1.tm_mon = stat2.tm_mon){
+		if(stat1.tm_mday > stat2.tm_mday)
+			printf("test1 is early. ");
+		else if(stat1.tm_mday < stat2.tm_mday)
+			printf("test2 is early. ");
+		else
+			printf("Same time. ");
+	}
+
 	else
-		printf("Same time. ");
+			printf(".");
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
-void timecmp(void)
+void timecmp(void)	// 하늘
 {
 	// struct timespec st_mtim;	// Time of last modification
 	/* struct tm
@@ -122,15 +128,20 @@ void timecmp(void)
 	 * 	}
 	 */
 
-	stat1.tm_min, stat1.tm_hour > stat1.tm;
-	stat2.tm_min, stat2.tm_hour > stat2.tm;
-
-	if(stat1.tm > stat2.tm)
+	if(stat1.tm_hour > stat2.tm_hour)
 		printf("test1 is early. ");
 
-	else if(stat1.tm < stat2.tm)
+	else if(stat1.tm_hour < stat2.tm_hour)
 		printf("test2 is early. ");
 
+	else if(stat1.tm_hour = stat2.tm_hour) {
+		if(stat1.tm_min > stat2.tm_min)
+			printf("test1 is early. ");
+		else if(stat1.tm_min < stat2.tm_min)
+			printf("test2 is early. ");
+		else
+			printf("Same time. ");
+	}
 	else
-		printf("Same time. ");
+		printf(". ");
 }
