@@ -32,36 +32,41 @@ int main(void)
 //
 void filestat1(void)
 {
-  stat("./hello.txt", &stat1);
+  stat("./text1", &stat1);
 }
 
 //파일 2의 정보를 가져오는 함수 작성
 void filestat2(void)
 {
-  stat("./operand.txt", &stat2);
+  stat("./text2", &stat2);
 }
 
 //파일 1의 시간 정보를 가져오는 함수 작성
 void filetime1(void)
 {
+	printf("filetime 1\n");
   time1 = localtime(&stat1.st_mtime);
+	printf("text1 파일이 %d년 %d월 %d일 %d시 %d분 %d초 마지막으로 수정됨\n\n",time1->tm_year+1900,time1->tm_mon+1,time1->tm_mday,time1->tm_hour,time1->tm_min,time1->tm_sec);
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
 void filetime2(void)
 {
+	printf("filetime 2\n");
   time2 = localtime(&stat2.st_mtime);
+	printf("text2 파일이 %d년 %d월 %d일 %d시 %d분 %d초 마지막으로 수정됨\n\n",time2->tm_year+1900,time2->tm_mon+1,time2->tm_mday,time2->tm_hour,time2->tm_min,time2->tm_sec);
 }
 
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
+	printf("size compare\n");
   if(stat1.st_size > stat2.st_size){
-    
+		printf("text1 is bigger\n\n");
   }else if(stat1.st_size < stat2.st_size){
-
+		printf("text2 is bigger\n\n");
   }else{
-
+		printf("text1, text2 size same\n\n");
   }
 }
 
