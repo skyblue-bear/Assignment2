@@ -71,16 +71,66 @@ void sizecmp(void)
 }
 
 //두 개의 파일 블락 수를 비교하는 함수 작성
-void blockcmp(void)
+void blockcmp(void)	// 하늘
 {
+	// struct stat stat1, stat2;
+	// blksize_t st_blksize;	// Block size for filesystem I/O.
+
+	if(stat1.st_blksize > stat2.st_blksize)
+		printf("test1 is bigger. ");
+
+	else if(stat1.st_blksize < stat2.st_blksize)
+		printf("test2 is bigger. ");
+
+	else
+		printf("Sizes are equal. ");
+
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
-void datecmp(void)
+void datecmp(void)	// 하늘
 {
+	// struct timespec st_mtim;	// Time of last modification
+	/* struct tm{
+	 * 	int tm_mday;
+	 * 	int tm_mon;
+	 * 	}
+	 */
+	// struct timespec st_mtim;	// Time of last modification
+
+	stat1.tm_mday, stat1.tm_mon > stat1.tm;
+	stat2.tm_mday, stat2.tm_mon > stat2.tm;
+
+	if(stat1.tm > stat2.tm)
+		printf("test1 is early. ");
+
+	else if(stat1.tm < stat2.tm)
+		printf("test2 is early. ");
+
+	else
+		printf("Same time. ");
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
 void timecmp(void)
 {
+	// struct timespec st_mtim;	// Time of last modification
+	/* struct tm
+	 * {
+	 * 	int tm_min;
+	 * 	int tm_hour;
+	 * 	}
+	 */
+
+	stat1.tm_min, stat1.tm_hour > stat1.tm;
+	stat2.tm_min, stat2.tm_hour > stat2.tm;
+
+	if(stat1.tm > stat2.tm)
+		printf("test1 is early. ");
+
+	else if(stat1.tm < stat2.tm)
+		printf("test2 is early. ");
+
+	else
+		printf("Same time. ");
 }
