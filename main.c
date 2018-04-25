@@ -76,14 +76,16 @@ void blockcmp(void)	// 하늘
 	// struct stat stat1, stat2;
 	// blksize_t st_blksize;	// Block size for filesystem I/O.
 
+	printf("block compare \n");
+
 	if(stat1.st_blksize > stat2.st_blksize)
-		printf("test1 is bigger. ");
+		printf("test1 is bigger. \n\n");
 
 	else if(stat1.st_blksize < stat2.st_blksize)
-		printf("test2 is bigger. ");
+		printf("test2 is bigger. \n\n");
 
 	else
-		printf("Sizes are equal. ");
+		printf("Sizes are equal. \n\n");
 
 }
 
@@ -98,19 +100,20 @@ void datecmp(void)	// 하늘
 	 */
 	// struct timespec st_mtim;	// Time of last modification
 
-	if(stat1.tm_mon > stat2.tm_mon)
-			printf("test1 is early. ");
+	printf("date compare\n");
+	if(time1->tm_mon < time2->tm_mon)
+		printf("test1 is early. \n\n");
 
-	else if(stat1.tm_mon < stat2.tm_mon)
-		printf("test2 is early. ");
+	else if(time1->tm_mon > time2->tm_mon)
+		printf("test2 is early. \n\n");
 
-	else if (stat1.tm_mon = stat2.tm_mon){
-		if(stat1.tm_mday > stat2.tm_mday)
-			printf("test1 is early. ");
-		else if(stat1.tm_mday < stat2.tm_mday)
-			printf("test2 is early. ");
+	else if (time1->tm_mon == time2->tm_mon) {
+		if(time1->tm_mday < time2->tm_mday)
+			printf("test1 is early. \n\n");
+		else if(time1->tm_mday > time2->tm_mday)
+			printf("test2 is early. \n\n");
 		else
-			printf("Same time. ");
+			printf("Same time. \n\n");
 	}
 
 	else
@@ -127,20 +130,20 @@ void timecmp(void)	// 하늘
 	 * 	int tm_hour;
 	 * 	}
 	 */
+	printf("time compare \n");
+	if(time1->tm_hour < time2->tm_hour)
+		printf("test1 is early. \n\n");
 
-	if(stat1.tm_hour > stat2.tm_hour)
-		printf("test1 is early. ");
+	else if(time1->tm_hour > time2->tm_hour)
+		printf("test2 is early. \n\n");
 
-	else if(stat1.tm_hour < stat2.tm_hour)
-		printf("test2 is early. ");
-
-	else if(stat1.tm_hour = stat2.tm_hour) {
-		if(stat1.tm_min > stat2.tm_min)
-			printf("test1 is early. ");
-		else if(stat1.tm_min < stat2.tm_min)
-			printf("test2 is early. ");
+	else if(time1->tm_hour == time2->tm_hour) {
+		if(time1->tm_min < time2->tm_min)
+			printf("test1 is early. \n\n");
+		else if(time1->tm_min > time2->tm_min)
+			printf("test2 is early. \n\n");
 		else
-			printf("Same time. ");
+			printf("Same time. \n\n");
 	}
 	else
 		printf(". ");
